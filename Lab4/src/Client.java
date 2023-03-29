@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Client {
     public static void main(String[] args) {
         try {
-            var data = XMLReader.getData();
+            var data = ConfigReader.getData();
             String host = data.get(0);
             int port = Integer.parseInt(data.get(1));
 
@@ -19,7 +19,6 @@ public class Client {
             TCPClient client = new TCPClient(host, port, clientLogger, expression);
             Thread thread = new Thread(client);
             thread.start();
-            Thread.sleep(500);
         } catch (Exception e) {
             System.out.println("Ошибка чтения файла настроек");
         }

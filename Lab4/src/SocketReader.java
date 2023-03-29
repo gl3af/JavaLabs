@@ -2,7 +2,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.Socket;
-
 public class SocketReader {
     public static String read(Socket socket) throws IOException {
         final int dataLength = 20;
@@ -10,13 +9,10 @@ public class SocketReader {
         StringBuffer buffer = new StringBuffer();
         InputStream in = socket.getInputStream();
         InputStreamReader reader = new InputStreamReader(in);
-        while(true) {
-            int count = reader.read(data, 0, dataLength);
-            if (count == -1) break;
-            buffer.append(data, 0, count);
-            Thread.yield();
-            break;
-        }
+
+        int count = reader.read(data, 0, dataLength);
+        buffer.append(data, 0, count);
+        Thread.yield();
 
         return buffer.toString();
     }

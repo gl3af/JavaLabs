@@ -7,7 +7,6 @@ import static java.lang.String.valueOf;
 
 public class TCPServer {
     public int port;
-
     private Logger logger;
     private ServerSocket serverSocket;
     public TCPServer(int port, Logger logger){
