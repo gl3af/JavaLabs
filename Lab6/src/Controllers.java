@@ -13,7 +13,7 @@ public class Controllers {
             String idStr,
             String xSpeedStr,
             String ySpeedStr) {
-        if (isValidStrings(new String[]{type, xSpeedStr, ySpeedStr, idStr})) {
+        if (isInvalidStrings(new String[]{type, xSpeedStr, ySpeedStr, idStr})) {
             errorLabel.setText("Данные не введены!");
             return;
         }
@@ -63,7 +63,7 @@ public class Controllers {
             List<Figure> figuresList,
             String oldIdStr,
             String newIdStr) {
-        if (isValidStrings(new String[]{oldIdStr, newIdStr})) {
+        if (isInvalidStrings(new String[]{oldIdStr, newIdStr})) {
             errorLabel.setText("Данные не введены!");
             return;
         }
@@ -100,7 +100,7 @@ public class Controllers {
             List<Figure> figuresList,
             Choice speedModifierChoice,
             String modifiedIdStr) {
-        if (isValidStrings(new String[]{modifiedIdStr})) {
+        if (isInvalidStrings(new String[]{modifiedIdStr})) {
             errorLabel.setText("Данные не введены!");
             return;
         }
@@ -134,7 +134,7 @@ public class Controllers {
             }
     }
 
-    private static boolean isValidStrings(String[] list) {
+    private static boolean isInvalidStrings(String[] list) {
         for (String str : list)
             if (str.isEmpty())
                 return true;
