@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="beans_jsp:war exploded" />
+    </artifacts-to-build>
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e2f13bcc-70ab-409f-983a-a734dbdce6c6" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../Lab1/src/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab1/src/Task.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab4/client.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab4/client.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab4/out/production/Lab4/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab4/out/production/Lab4/Client.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab4/out/production/Lab4/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab4/out/production/Lab4/Server.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab4/out/production/Lab4/SocketReader.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab4/out/production/Lab4/SocketReader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab4/out/production/Lab4/TCPServer$1Listener.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab4/out/production/Lab4/TCPServer$1Listener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab4/out/production/Lab4/TCPServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab4/out/production/Lab4/TCPServer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab4/out/production/Lab4/XMLReader.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab4/server.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab4/server.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab6/out/production/Lab6/Ball.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab6/out/production/Lab6/Ball.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab6/out/production/Lab6/Controllers.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab6/out/production/Lab6/Controllers.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab6/out/production/Lab6/DemonstrationFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab6/out/production/Lab6/DemonstrationFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab6/out/production/Lab6/Figure.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab6/out/production/Lab6/Figure.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab6/out/production/Lab6/Oval.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab6/out/production/Lab6/Oval.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab6/out/production/Lab6/Rectangle.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab6/out/production/Lab6/Rectangle.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab6/out/production/Lab6/Square.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab6/out/production/Lab6/Square.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab6/out/production/Lab6/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab6/out/production/Lab6/Test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab6/out/production/Lab6/Triangle.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab6/out/production/Lab6/Triangle.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab6/src/Ball.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab6/src/Ball.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab6/src/Controllers.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab6/src/Controllers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab6/src/DemonstrationFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab6/src/DemonstrationFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab6/src/Figure.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab6/src/Figure.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab6/src/Oval.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab6/src/Oval.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab6/src/Rectangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab6/src/Rectangle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab6/src/Square.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab6/src/Square.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab6/src/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab6/src/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab6/src/Triangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab6/src/Triangle.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="workspaceImportEnabled" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2PIFjN0jaiuY3Ac5KqgOreDIeb2" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.keymap",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn clean" />
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="GlassFish 6.2.5" type="GlassfishConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="GlassFish 6.2.5" ALTERNATIVE_JRE_ENABLED="true" ALTERNATIVE_JRE_PATH="19" nameIsGenerated="true">
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="beans_jsp:war exploded">
+          <settings />
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="DOMAIN" value="domain1" />
+        <option name="PRESERVE" value="false" />
+        <option name="COMPATIBILITY" value="false" />
+        <option name="VIRTUAL_SERVER" />
+        <option name="USERNAME" value="admin" />
+        <option name="CREDENTIAL_ALIAS" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="GlassFish" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="9009" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="beans_jsp:war exploded" />
+        </option>
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e2f13bcc-70ab-409f-983a-a734dbdce6c6" name="Changes" comment="" />
+      <created>1683136826577</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1683136826577</updated>
+      <workItem from="1683136827744" duration="4098000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
