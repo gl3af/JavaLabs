@@ -10,8 +10,7 @@ class DemonstrationFrame extends Frame implements Observer, ActionListener, Item
     private final Frame frame;
     private final JColorChooser colorChooser;
     private final TextField figureTypeInput;
-    private final TextField xSpeedInput;
-    private final TextField ySpeedInput;
+    private final TextField speedInput;
     private final MyComponentAdapter componentAdapter;
     private final TextField oldIdInput;
     private final TextField newIdInput;
@@ -39,7 +38,7 @@ class DemonstrationFrame extends Frame implements Observer, ActionListener, Item
         frame.add(errorLabel);
 
         // Элемент выбора цвета
-        colorChooser = new JColorChooser();
+        colorChooser = new JColorChooser(Color.BLACK);
         colorChooser.setMaximumSize(new Dimension(450, 250));
         frame.add(colorChooser);
         colorChooser.setPreviewPanel(new JPanel());
@@ -59,15 +58,10 @@ class DemonstrationFrame extends Frame implements Observer, ActionListener, Item
         frame.add(figureTypeInput);
 
         // Поля ввода скорости
-        xSpeedInput = new TextField();
-        xSpeedInput.setMaximumSize(d);
-        frame.add(createLabel("Начальная скорость по X"));
-        frame.add(xSpeedInput);
-
-        ySpeedInput = new TextField();
-        ySpeedInput.setMaximumSize(d);
-        frame.add(createLabel("Начальная скорость по X"));
-        frame.add(ySpeedInput);
+        speedInput = new TextField();
+        speedInput.setMaximumSize(d);
+        frame.add(createLabel("Начальная скорость"));
+        frame.add(speedInput);
 
         // Поле ввода номера фигуры
         frame.add(createLabel("Номер фигуры"));
@@ -129,11 +123,11 @@ class DemonstrationFrame extends Frame implements Observer, ActionListener, Item
         frame.add(updateIdButton);
 
         // Инициализация ДО
-        this.setSize(500, 200);
+        this.setSize(500, 540);
         frame.setVisible(true);
         this.setTitle("ДО");
         this.setVisible(true);
-        this.setLocation(600, 150);
+        this.setLocation(450, 0);
     }
 
     public void update(Observable o, Object arg) {
@@ -157,8 +151,7 @@ class DemonstrationFrame extends Frame implements Observer, ActionListener, Item
 
     public void actionPerformed(ActionEvent aE) {
         String type = figureTypeInput.getText();
-        String xSpeedStr = xSpeedInput.getText();
-        String ySpeedStr = ySpeedInput.getText();
+        String speedStr = speedInput.getText();
         String idStr = figureIdInput.getText();
         String oldIdStr = oldIdInput.getText();
         String newIdStr = newIdInput.getText();
@@ -169,7 +162,7 @@ class DemonstrationFrame extends Frame implements Observer, ActionListener, Item
         switch (str) {
             case "Start" ->
                 Controllers.addNewFigure(
-                    this, frame, errorLabel, colorChooser, figuresList, type, idStr, xSpeedStr, ySpeedStr);
+                    this, frame, errorLabel, colorChooser, figuresList, type, idStr, speedStr);
             case "Update speed" ->
                 Controllers.updateSpeed(errorLabel, figuresList, speedModifierChoice, modifiedIdStr);
             case "Update id" ->

@@ -3,26 +3,26 @@ import java.awt.*;
 class Ball extends Figure {
     private final int radius;
 
-    public Ball(Frame frame, Color color, int id, int xSpeed, int ySpeed, int radius) {
-        super(frame, color, id, xSpeed, ySpeed);
+    public Ball(Frame frame, Color color, int id, int speed, int radius) {
+        super(frame, color, id, speed);
         this.radius = radius;
     }
 
     @Override
     public void run() {
         while (true) {
-            if (x >= frame.getWidth() - radius - xSpeed) toRight = false; // Правая граница
+            if (x >= frame.getWidth() - radius - speed * Math.cos(angle)) toRight = false; // Правая граница
             if (x <= 0) toRight = true; // Левая граница
-            if (y >= frame.getHeight() - radius - ySpeed) toBottom = false; // Нижняя граница
-            if (y <= 28 + ySpeed) toBottom = true; // Верхняя граница
-            if (toRight) x += modifier * xSpeed;
-            else x -= modifier * xSpeed;
-            if (toBottom) y += modifier * ySpeed;
-            else y -= modifier * ySpeed;
+            if (y >= frame.getHeight() - radius - speed * Math.sin(angle)) toBottom = false; // Нижняя граница
+            if (y <= 28 + Math.sin(angle)) toBottom = true; // Верхняя граница
+            if (toRight) x += speed * Math.cos(angle);
+            else x -= speed * Math.cos(angle);
+            if (toBottom) y += speed * Math.sin(angle);
+            else y -= speed * Math.sin(angle);
             setChanged();
             notifyObservers(this);
             try {
-                Thread.sleep(10);
+                Thread.sleep(SLEEP_TIME);
             } catch (InterruptedException ignored) {
             }
         }

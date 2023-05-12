@@ -11,20 +11,18 @@ public class Controllers {
             List<Figure> figuresList,
             String type,
             String idStr,
-            String xSpeedStr,
-            String ySpeedStr) {
-        if (isInvalidStrings(new String[]{type, xSpeedStr, ySpeedStr, idStr})) {
+            String speedStr) {
+        if (isInvalidStrings(new String[]{ type, speedStr, idStr })) {
             errorLabel.setText("Данные не введены!");
             return;
         }
 
         Color color = colorChooser.getColor();
-        int xSpeed, ySpeed, id;
+        int speed, id;
 
         try {
             id = Integer.parseInt(idStr);
-            xSpeed = Integer.parseInt(xSpeedStr);
-            ySpeed = Integer.parseInt(ySpeedStr);
+            speed = Integer.parseInt(speedStr);
         } catch (NumberFormatException e) {
             errorLabel.setText("Введены не числа!");
             return;
@@ -36,23 +34,23 @@ public class Controllers {
         }
 
         if (type.equalsIgnoreCase("круг")) {
-            Ball ball = new Ball(frame, color, id, xSpeed, ySpeed, 20);
+            Ball ball = new Ball(frame, color, id, speed, 20);
             figuresList.add(ball);
             ball.addObserver(parent);
         } else if (type.equalsIgnoreCase("овал")) {
-            Oval oval = new Oval(frame, color, id, xSpeed, ySpeed, 20, 10);
+            Oval oval = new Oval(frame, color, id, speed, 20, 10);
             figuresList.add(oval);
             oval.addObserver(parent);
         } else if (type.equalsIgnoreCase("квадрат")) {
-            Square square = new Square(frame, color, id, xSpeed, ySpeed, 20);
+            Square square = new Square(frame, color, id, speed, 20);
             figuresList.add(square);
             square.addObserver(parent);
         } else if (type.equalsIgnoreCase("прямоугольник")) {
-            Rectangle rect = new Rectangle(frame, color, id, xSpeed, ySpeed, 20, 10);
+            Rectangle rect = new Rectangle(frame, color, id, speed, 20, 10);
             figuresList.add(rect);
             rect.addObserver(parent);
         } else if (type.equalsIgnoreCase("треугольник")) {
-            Triangle triangle = new Triangle(frame, color, id, xSpeed, ySpeed, 20);
+            Triangle triangle = new Triangle(frame, color, id, speed, 20);
             figuresList.add(triangle);
             triangle.addObserver(parent);
         } else errorLabel.setText("Введенный тип отсутствует!");
@@ -63,7 +61,7 @@ public class Controllers {
             List<Figure> figuresList,
             String oldIdStr,
             String newIdStr) {
-        if (isInvalidStrings(new String[]{oldIdStr, newIdStr})) {
+        if (isInvalidStrings(new String[]{ oldIdStr, newIdStr })) {
             errorLabel.setText("Данные не введены!");
             return;
         }
@@ -100,7 +98,7 @@ public class Controllers {
             List<Figure> figuresList,
             Choice speedModifierChoice,
             String modifiedIdStr) {
-        if (isInvalidStrings(new String[]{modifiedIdStr})) {
+        if (isInvalidStrings(new String[]{ modifiedIdStr })) {
             errorLabel.setText("Данные не введены!");
             return;
         }
@@ -109,7 +107,7 @@ public class Controllers {
         try {
             modifiedId = Integer.parseInt(modifiedIdStr);
         } catch (NumberFormatException e) {
-            errorLabel.setText("Введены не числа!");
+            errorLabel.setText("Введено не число!");
             return;
         }
 
@@ -129,7 +127,7 @@ public class Controllers {
 
         for (Figure figure: figuresList)
             if (figure.id == modifiedId) {
-                figure.modifier = modifier;
+                figure.speed *= modifier;
                 break;
             }
     }

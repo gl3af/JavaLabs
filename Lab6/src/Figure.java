@@ -2,29 +2,28 @@ import java.awt.*;
 import java.util.Observable;
 
 public abstract class Figure extends Observable implements Runnable {
+    final int SLEEP_TIME = 200;
     int id;
-    int modifier = 1;
     Thread thread;
     Frame frame;
     boolean toRight;
     boolean toBottom;
-    final int xSpeed;
-    final int ySpeed;
+    int speed;
     int x;
     int y;
+    double angle;
     Color color;
-    protected Figure(Frame frame, Color color, int id, int xSpeed, int ySpeed) {
+    protected Figure(Frame frame, Color color, int id, int speed) {
+        angle = Math.PI / 2 * Math.random();
         toRight = true;
         toBottom = true;
         x = 0;
         y = 30;
         this.id = id;
         this.frame = frame;
-        this.xSpeed = xSpeed;
-        this.ySpeed = ySpeed;
+        this.speed = speed;
         this.color = color;
-        Test.count++;
-        thread = new Thread(this, Test.count + ":");
+        thread = new Thread(this);
         thread.start();
     }
 
