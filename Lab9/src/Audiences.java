@@ -1,6 +1,7 @@
 import java.awt.*;
 import java.awt.event.*;
 import java.sql.*;
+import java.util.logging.Logger;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
@@ -46,7 +47,7 @@ public class Audiences extends JPanel implements ActionListener {
         buttonOrderBuilding.addActionListener(this);
         JButton buttonOrderNumber = new JButton("Упорядочить по 2 столбцу");
         buttonOrderNumber.addActionListener(this);
-        JButton buttonReset = new JButton("Cброс");
+        JButton buttonReset = new JButton("Сброс");
         buttonReset.addActionListener(this);
 
         panelControl.add(buttonShow);
@@ -158,7 +159,7 @@ public class Audiences extends JPanel implements ActionListener {
         }
 
         int delta_size_dialog = 20;
-        if ("Создать".equals(command)) {
+        if (command.equals("Создать")) {
             JDialog dialogContact = new JDialog(mainFrame,
                     "Новая аудитория", JDialog.DEFAULT_MODALITY_TYPE);
 
@@ -235,6 +236,10 @@ public class Audiences extends JPanel implements ActionListener {
             findYoungest();
         }
 
+        if (command.equals("Сброс")) {
+            reset();
+        }
+
         if (command.equals("Сумма площадей")) {
             countSquare();
         }
@@ -276,7 +281,6 @@ public class Audiences extends JPanel implements ActionListener {
             }
         }
     }
-
     private void countSquare() {
         if ((tableShow.getSelectedRow() == -1))
             return;
@@ -345,6 +349,56 @@ public class Audiences extends JPanel implements ActionListener {
             }
         } catch (SQLException err) {
             System.out.println(err.getMessage());
+        }
+    }
+    private void reset() {
+        System.out.println("reset");
+        String building = "0";
+        String number = "0";
+        String name = "Имя";
+        String square = "0";
+        String fio = "Фамилия Имя Отчество";
+        String position = "Человек";
+        String phoneNumber = "89999999999";
+        String age = "0";
+
+        String updateAudience =
+                String.format("UPDATE Audience " +
+                                "SET building = %s, number = %s, name = '%s', square = %s",
+                        building, number, name, square);
+        String updateIC =
+                String.format("UPDATE IC SET " +
+                                "fio = '%s', position = '%s', phone_number = '%s', age = %s",
+                        fio, position, phoneNumber, age);
+
+        // DB
+        try {
+            PreparedStatement audience;
+            PreparedStatement IC;
+            connection.setAutoCommit(true);
+
+            audience = connection.prepareStatement(updateAudience);
+            int res = audience.executeUpdate();
+//                        System.out.println(res);
+
+            IC = connection.prepareStatement(updateIC);
+            res = IC.executeUpdate();
+//                        System.out.println(res);
+
+            audience.close();
+            IC.close();
+            findByString("", 0);
+        } catch (SQLException err1) {
+            try {
+                connection.setAutoCommit(false);
+                JOptionPane.showMessageDialog(
+                        this, "Ошибка сброса");
+                System.out.println(err1.getMessage());
+                connection.rollback();
+                connection.setAutoCommit(true);
+            } catch (SQLException err2) {
+                System.out.println(err2.getMessage());
+            }
         }
     }
 
