@@ -24,7 +24,7 @@ public class Audiences extends JPanel implements ActionListener {
 
         //Создание панели "Управление".
         JPanel panelControl = new JPanel();
-        int width_window = 800;
+        int width_window = 1280;
         panelControl.setPreferredSize(new Dimension(width_window, 60));
         panelControl.setBorder(BorderFactory.createTitledBorder("Управление"));
         add(Box.createRigidArea(new Dimension(0, 10))); // Отступ 10 пикселей
@@ -46,6 +46,8 @@ public class Audiences extends JPanel implements ActionListener {
         buttonOrderBuilding.addActionListener(this);
         JButton buttonOrderNumber = new JButton("Упорядочить по 2 столбцу");
         buttonOrderNumber.addActionListener(this);
+        JButton buttonReset = new JButton("Cброс");
+        buttonReset.addActionListener(this);
 
         panelControl.add(buttonShow);
         panelControl.add(buttonCreate);
@@ -55,6 +57,7 @@ public class Audiences extends JPanel implements ActionListener {
         panelControl.add(buttonSum);
         panelControl.add(buttonOrderBuilding);
         panelControl.add(buttonOrderNumber);
+        panelControl.add(buttonReset);
         add(panelControl);
 
         //Создание панели "Поиск".
@@ -72,7 +75,7 @@ public class Audiences extends JPanel implements ActionListener {
 
         //Создание панели "Список аудиторий".
         JPanel audienceShow = new JPanel();
-        audienceShow.setPreferredSize(new Dimension(width_window, 130));
+        audienceShow.setPreferredSize(new Dimension(width_window, 200));
         audienceShow.setLayout(new BoxLayout(audienceShow, BoxLayout.Y_AXIS));
         audienceShow.setBorder(BorderFactory.createTitledBorder("Список аудиторий"));
         add(Box.createRigidArea(new Dimension(0, 10))); // Отступ сверху вниз на 10 пикселей
@@ -85,6 +88,22 @@ public class Audiences extends JPanel implements ActionListener {
             }
         };
 
+        tableShow = new JTable();
+        tableShow.setModel(tableShowModel);
+
+        JScrollPane paneShow = new JScrollPane(tableShow);
+        audienceShow.add(paneShow);
+        labelFindCol = new JLabel("Найдено записей: 0");
+        audienceShow.add(labelFindCol);
+        add(audienceShow);
+
+        //Создание панели "Молодые ответственные".
+        JPanel youngShow = new JPanel();
+        youngShow.setPreferredSize(new Dimension(width_window, 150));
+        youngShow.setLayout(new BoxLayout(youngShow, BoxLayout.Y_AXIS));
+        youngShow.setBorder(BorderFactory.createTitledBorder("Молодые ответственные"));
+        add(Box.createRigidArea(new Dimension(0, 10))); // Отступ сверху вниз на 10 пикселей
+
         tableYoungModel = new DefaultTableModel(new Object[]
                 {"ФИО", "Должность", "Номер телефона", "Возраст"}, 0) {
             @Override
@@ -93,20 +112,12 @@ public class Audiences extends JPanel implements ActionListener {
             }
         };
 
-        tableShow = new JTable();
-        tableShow.setModel(tableShowModel);
-
         tableYoung = new JTable();
         tableYoung.setModel(tableYoungModel);
 
-        JScrollPane paneShow = new JScrollPane(tableShow);
         paneYoung = new JScrollPane(tableYoung);
-        audienceShow.add(paneShow);
-        labelFindCol = new JLabel("Найдено записей: 0");
-        audienceShow.add(labelFindCol);
-        audienceShow.add(paneYoung);
-        paneYoung.setVisible(false);
-        add(audienceShow);
+        youngShow.add(paneYoung);
+        add(youngShow);
 
         // DB connection
         try {
@@ -125,8 +136,9 @@ public class Audiences extends JPanel implements ActionListener {
         JFrame frame = new JFrame("Учебные аудитории");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         mainFrame = frame;
-        JComponent componentPanelAddressBook = new Audiences();
-        frame.setContentPane(componentPanelAddressBook);
+        JComponent componentPanelAudiences = new Audiences();
+        frame.setContentPane(componentPanelAudiences);
+        frame.setPreferredSize(new Dimension(1280, 600));
         frame.pack();
         frame.setVisible(true);
     }
@@ -159,6 +171,7 @@ public class Audiences extends JPanel implements ActionListener {
             dialogContact.setVisible(true);
         }
 
+        // Редактировать или просмотреть
         try {
             if ((command.equals("Редактировать") || command.equals("Просмотреть"))
                     && result != null && tableShow.getSelectedRow() > -1) {
@@ -219,7 +232,11 @@ public class Audiences extends JPanel implements ActionListener {
         }
 
         if (command.equals("Молодые")) {
-            paneYoung.setVisible(true);
+            findYoungest();
+        }
+
+        if (command.equals("Сумма площадей")) {
+            countSquare();
         }
 
         try {
@@ -258,6 +275,23 @@ public class Audiences extends JPanel implements ActionListener {
                 System.out.println(err2.getMessage());
             }
         }
+    }
+
+    private void countSquare() {
+        if ((tableShow.getSelectedRow() == -1))
+            return;
+        String fio = tableShowModel.getValueAt(tableShow.getSelectedRow(), 4).toString();
+        try {
+            SQL = "select sum(square) from (select square from audience join ic on Audience.id = ic.audience_id " +
+                    "where fio = " + "'" + fio + "'" + ") AS sub";
+            result = statement.executeQuery(SQL);
+            result.next();
+            String value = result.getString("sum");
+            JOptionPane.showMessageDialog(this, value);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
     }
 
     private void findByString(String textFind, int column) {
@@ -299,22 +333,16 @@ public class Audiences extends JPanel implements ActionListener {
                 tableYoungModel.removeRow(0);
             }
 
-            SQL =   "SELECT Audience.*, IC.* FROM Audience JOIN IC ON Audience.id = IC.audience_id " +
-                    "WHERE Audience.name ILIKE '" + textFind + "%' " + orderBy;
+            SQL = "select fio, position, phone_number, age from IC where age = (SELECT min(age) FROM IC) order by fio";
             result = statement.executeQuery(SQL);
             while (result.next()) {
-                String building = result.getString("building");
-                String number = result.getString("number");
-                String name = result.getString("name");
-                String square = result.getString("square");
                 String fio = result.getString("fio");
                 String position = result.getString("position");
                 String phoneNumber = result.getString("phone_number");
                 String age = result.getString("age");
-                tableShowModel.addRow(new Object[]
-                        {building, number, name, square, fio, position, phoneNumber, age});
+                tableYoungModel.addRow(new Object[]
+                        {fio, position, phoneNumber, age});
             }
-            labelFindCol.setText("Найдено записей: " + tableShowModel.getRowCount());
         } catch (SQLException err) {
             System.out.println(err.getMessage());
         }
